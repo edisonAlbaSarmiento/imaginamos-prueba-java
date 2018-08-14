@@ -2,7 +2,6 @@ package com.imaginamos.prueba.java.models.entities;
 
 import java.io.Serializable;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,24 +17,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 
 @Entity
-@Table(name="cliente")
-public class Cliente implements Serializable{
+@Table(name = "cliente")
+public class Cliente implements Serializable {
 
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_cliente")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_cliente")
 	private long id;
-	@Column(unique=true)
+	@Column(unique = true)
 	private long documento;
 	private String nombres;
-	@Column(unique=true)
+	@Column(unique = true)
 	private String correo;
 	private int edad;
-	  @OneToOne(fetch = FetchType.EAGER, optional = false)
-	  @JoinColumn(name="id_login")
-    private Login login;
-	  @JsonIgnore
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "id_login")
+	private Login login;
+
+
+	@JsonIgnore
 	public Login getLogin() {
 		return login;
 	}
@@ -83,6 +83,7 @@ public class Cliente implements Serializable{
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+
 	/**
 	 * 
 	 */
@@ -90,6 +91,6 @@ public class Cliente implements Serializable{
 
 	public void setUsuario(HashSet<Login> hashSet) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

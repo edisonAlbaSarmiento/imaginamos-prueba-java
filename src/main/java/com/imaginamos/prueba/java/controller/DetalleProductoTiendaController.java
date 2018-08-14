@@ -44,7 +44,7 @@ public class DetalleProductoTiendaController {
 	public DetalleProductoTienda update (@RequestBody DetalleProductoTienda detalleproductoTienda,@PathVariable Long id) {
 	  
 		DetalleProductoTienda detalleproductoTiendaActual = detalleproductoTiendaService.findById(id);
-		detalleproductoTiendaActual.setCantidad_producto_tienda(detalleproductoTiendaActual.getCantidad_producto_tienda());
+		
 	  return detalleproductoTiendaService.save(detalleproductoTiendaActual);
 	}
 
