@@ -2,7 +2,7 @@ package com.imaginamos.prueba.java.models.entities;
 
 import java.io.Serializable;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +16,7 @@ public class Tienda implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_tienda")
 	private long id;
 	private String nombre;
 	private String horario;

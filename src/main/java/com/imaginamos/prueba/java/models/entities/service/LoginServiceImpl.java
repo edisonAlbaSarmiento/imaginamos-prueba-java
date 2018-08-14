@@ -26,17 +26,25 @@ public class LoginServiceImpl implements ILoginService {
 	@Transactional(readOnly=true)
 	public Login findById(Long id) {
 		// buscar por id
-		return loginDao.findById(id).orElse(null);
+		return loginDao.findById(id);
+	}
+	@Override
+	public Login buscar(String usuario,String contrasena) {
+	Login login = loginDao.buscar(usuario, contrasena);
+	return login;
 	}
 
 	@Override
 	public Login save(Login login) {
-		// para guardar
-		return loginDao.save(login);
+		// TODO Auto-generated method stub
+		loginDao.save(login);
+		return login;
 	}
 
 	@Override
 	public void delete(Long id) {
-		// para eliminar
-		loginDao.deleteById(id);	}
+		// TODO Auto-generated method stub
+		loginDao.delete(id);
+	}
+
 }

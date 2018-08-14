@@ -2,12 +2,17 @@ package com.imaginamos.prueba.java.models.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="login")
@@ -21,8 +26,17 @@ public class Login implements Serializable{
 	private long id; 
 	
 	private String usuario;
-	private String contraseña;
+	private String contrasena;
+	@OneToOne(mappedBy="login", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	
+    private Cliente cliente;
+	@JsonIgnore
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	public long getId() {
 		return id;
 	}
@@ -35,11 +49,11 @@ public class Login implements Serializable{
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	/**
 	 * 

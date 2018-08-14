@@ -38,6 +38,16 @@ public class LoginREstController {
 	public Login create (@RequestBody Login login) {
 		return loginService.save(login);
 	}
+	@PostMapping("/logueo")
+public Login logueado(@RequestBody Login login) {
+		
+		Login l=loginService.buscar(login.getUsuario(),login.getContrasena());
+		if(l==null) {
+			return new Login();
+		} else {
+			return l;
+		}	
+	}
 	
 	@PutMapping("/logins/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -46,7 +56,7 @@ public class LoginREstController {
 		Login loginActual = loginService.findById(id);
 		
 		loginActual.setUsuario(login.getUsuario());
-		loginActual.setContraseña(login.getContraseña());
+		loginActual.setContrasena(login.getContrasena());
 		return loginService.save(loginActual);
 	}
 	

@@ -10,6 +10,8 @@ public interface ILoginService {
 	
 	public Login findById(Long id);
 	
+	public Login buscar(String usuario,String contrasena);
+	
 	public Login save(Login login);
 	
 	public void delete(Long id);

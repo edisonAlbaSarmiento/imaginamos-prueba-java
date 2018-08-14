@@ -10,41 +10,34 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="detalleProductoTienda")
-public class DetalleProductoTienda implements Serializable {
+@Table(name="compra")
+public class Compra implements Serializable{
 
-	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_detalleproductotienda")
-	private long id; 
-	private float cantidad_producto_tienda;
-	
+	@Column(name="id_compra")
+	private long id;
+	private float total_compra;
 	
 	public long getId() {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
 
-
-	public float getCantidad_producto_tienda() {
-		return cantidad_producto_tienda;
+	public float getTotal_compra() {
+		return total_compra;
 	}
 
-
-	public void setCantidad_producto_tienda(float cantidad_producto_tienda) {
-		this.cantidad_producto_tienda = cantidad_producto_tienda;
+	public void setTotal_compra(float total_compra) {
+		this.total_compra = total_compra;
 	}
-
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 }

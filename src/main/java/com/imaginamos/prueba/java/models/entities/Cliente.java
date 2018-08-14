@@ -2,19 +2,19 @@ package com.imaginamos.prueba.java.models.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import java.util.HashSet;
-import java.util.Set;
+
 @Entity
 @Table(name="cliente")
 public class Cliente implements Serializable{
@@ -30,16 +30,16 @@ public class Cliente implements Serializable{
 	@Column(unique=true)
 	private String correo;
 	private int edad;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "login", joinColumns = @JoinColumn(name = "id_cliente"), inverseJoinColumns = @JoinColumn(name = "id_login"))
-	private Set<Login> logins;
-	
-	public Set<Login> getLogins() {
-		return logins;
+	  @OneToOne(fetch = FetchType.EAGER, optional = false)
+	  @JoinColumn(name="id_login")
+    private Login login;
+
+	public Login getLogin() {
+		return login;
 	}
 
-	public void setLogins(Set<Login> logins) {
-		this.logins = logins;
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 
 	public long getId() {
