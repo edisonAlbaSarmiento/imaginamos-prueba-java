@@ -1,9 +1,9 @@
 Paso Para ejecutar el proyecto 
 
-1.Clonar el repositorio
-2.Crear la bases de datos en mysql con nombre dbprueba y ejecutar el script bases de datos 
-3.Instalar o abrir Postman
-4.Realizar las peticiones con las siguientes urls:
+1. Clonar el repositorio
+2. Crear la bases de datos en mysql con nombre dbprueba y ejecutar el script bases de datos 
+3. Instalar o abrir Postman
+4. Realizar las peticiones con las siguientes urls:
 
 http://localhost:8080/api/logueo/
 
