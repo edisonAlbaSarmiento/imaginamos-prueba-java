@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 
 @Entity
@@ -33,7 +35,7 @@ public class Cliente implements Serializable{
 	  @OneToOne(fetch = FetchType.EAGER, optional = false)
 	  @JoinColumn(name="id_login")
     private Login login;
-
+	  @JsonIgnore
 	public Login getLogin() {
 		return login;
 	}

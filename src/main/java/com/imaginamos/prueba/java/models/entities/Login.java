@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="login")
@@ -27,10 +27,10 @@ public class Login implements Serializable{
 	
 	private String usuario;
 	private String contrasena;
-	@OneToOne(mappedBy="login", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="login", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	
     private Cliente cliente;
-	@JsonIgnore
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
