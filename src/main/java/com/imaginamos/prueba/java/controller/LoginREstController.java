@@ -45,6 +45,7 @@ public Login logueado(@RequestBody Login login) {
 		if(l==null) {
 			return new Login();
 		} else {
+			l.setContrasena("******");
 			return l;
 		}	
 	}
